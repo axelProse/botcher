@@ -7,13 +7,6 @@ import {RollingList} from './RollingList.js'
 
 export default function App () {
   const [rollQueue, setRollQueue] = useState([]);
-    // Instead of having it at a global level, I should let each skill have a result value.  
-    // Probably best to add the property specifically for skills in the rollQueue.  
-    // It starts as 0 (or unrolled?), and then the roll method updates the skill's result value.  
-      // But you can't update props.  Which makes sense, I want things dumb.  
-      // I could have the data inside of skills... except I can't.  What if you roll a skill more than once?  
-      // Can I just have a property on the roll queue skill that knows what was just rolled?  
-      // Maybe I have state on the the roll queue skill, and the roll function updates that state?  
   const [count, setCount] = useState(0);
     //const CharacterInfo = useCharacterInfo
 
@@ -46,6 +39,10 @@ export default function App () {
     setRollQueue([]);
     console.log(rollQueue);
   }
+
+  // const clearSkillFromQueue = (rollQueue) => {
+  //   // This should be a filter function that removes the skill from the array... based on index?  How do I avoid name?  
+  // }
 
   const roll = (wildDie, dieType) => {
     let wildResult = rollExploding(wildDie);
@@ -107,12 +104,6 @@ export default function App () {
       <SkillList skills={baseSkills} 
        addToRollQueue={addToRollQueue}
       />
-      <br /><br />
-      Here is a button that will track how many times you click it:
-      <br /><br />
-      <button onClick={() => setCount(count+1)}>
-        {count}
-      </button>
     </div>
   );
 }
