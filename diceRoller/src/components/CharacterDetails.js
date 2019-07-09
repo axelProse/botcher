@@ -8,11 +8,11 @@ export const CharacterDetails = props => (
     <Typography variant="h3"> 
       Name: {props.characterName}
     </Typography>
-    <Typography variant="subtitle1">
-      <h2>Wounds: {props.wounds}</h2>
-      <h2>Rank: {props.rank}</h2>
-      <h2>Experience: {props.experience}</h2>
-      <h2>Bennies: {props.bennies}</h2>
+    <Typography variant="h4">
+      <div>Wounds: {props.wounds}</div>
+      <div>Rank: {props.rank}</div>
+      <div>Experience: {props.experience}</div>
+      <div>Bennies: {props.bennies}</div>
     </Typography>
   </Paper>
 );

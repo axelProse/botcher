@@ -21,7 +21,7 @@ export const SkillButton = props => {
   return(
     <Card style={styles.Card}>
       <Typography 
-        variant="h4" 
+        variant="h5" 
         //align="center"
       > 
         {props.skill.name}
