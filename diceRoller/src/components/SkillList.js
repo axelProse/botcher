@@ -1,25 +1,33 @@
 import React from 'react';
 import {SkillButton} from './SkillButton.js'
-import { Grid } from '@material-ui/core'
+import { Grid, Paper } from '@material-ui/core'
 
-export const SkillList = props => {
-
+export const SkillList = ({skills, addToRollQueue}) => {
+//export const SkillList = props => {
   const style={
     Grid: {
+      padding: 0, // Intentional, will style later.
+    },
+    Paper: {
       padding: 20,
+      marginTop: 5,
+      height: 500,
+      overflowY: 'auto',
     }
   }
-  // Allow a show/hide option based on whether the skills are known (which means dieType !== null;)
+  
   return (
-    <Grid container justify="flex-start" spacing={2} style={style.Grid}>
-      {props.skills.map(skill => (
-        <Grid key={skill.name} item>
-          <SkillButton 
-            skill={skill}
-            addToRollQueue={props.addToRollQueue}
-          />
-        </Grid>
-        )) } 
-    </Grid>
+    <Paper style={style.Paper}>
+      <Grid container justify="flex-start" spacing={2} style={style.Grid}>
+        {skills.map(skill => (
+          <Grid key={skill.name} item>
+            <SkillButton 
+              skill={skill}
+              addToRollQueue={addToRollQueue}
+            />
+          </Grid>
+          )) } 
+      </Grid>
+    </Paper>
   );
 }
