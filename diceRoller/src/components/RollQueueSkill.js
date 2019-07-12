@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Button, Card, Typography } from '@material-ui/core'
+import { Button, Card, Grid, Typography } from '@material-ui/core'
 
 export const RollQueueSkill = props => {
 
@@ -10,25 +10,30 @@ export const RollQueueSkill = props => {
     setRolledResult(result);
   } 
 
-  const styles ={
+  const style ={
     Card: {
       padding: 20, 
       marginTop: 5,
       marginBottom: 5,
+    },
+    Button: {
+      padding: 5,
     }
   }
 
   return (
-  <Card style={styles.Card}>
-    <Button variant="outlined" color="secondary" onClick={() => props.removeFromRollQueue(props.skill.name) } >x</Button>
-    <Typography variant="h5">
-      {props.skill.name}
-    </Typography>
-      <div>
-        <Button variant="contained" color="secondary" onClick={() => rollIt(props.wildDie, props.skill.dieType, props.multiActionPenalty, props.botchActive)} >
-          {rolledResult}
-        </Button>
-      </div>
+  <Card style={style.Card}>
+      <Grid container alignItems="center" justify="space-between" direction="row">
+      <Button variant="contained" color="secondary" style={style.Button} onClick={() => rollIt(props.wildDie, props.skill.dieType, props.multiActionPenalty, props.botchActive)} >
+        {rolledResult}
+      </Button>
+      <Typography variant="h5">
+          {props.skill.name}
+        </Typography>
+
+        
+      <Button variant="outlined" color="secondary" style={style.Button} onClick={() => props.removeFromRollQueue(props.skill.name) } >x</Button>
+      </Grid>
     </Card>
   );
   }

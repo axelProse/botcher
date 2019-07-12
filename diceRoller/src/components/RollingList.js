@@ -1,6 +1,6 @@
 import React from 'react'
 import { RollQueueSkill } from './RollQueueSkill.js'
-import { Button, Paper, Typography } from '@material-ui/core'
+import { Button, Grid, Paper, Typography } from '@material-ui/core'
 
 export const RollingList = ({rollQueue, rollQueueMethods, rollMethods, wildDie, botchActive}) => {
 
@@ -10,16 +10,43 @@ export const RollingList = ({rollQueue, rollQueueMethods, rollMethods, wildDie, 
       marginTop: 5,
       height: 500,
       overflowY: 'auto',
+    }, 
+    gridContainer: {
+      flexdirection: 'row',
+      justify: 'space-between'
+
+    },
+    gridItem: {
+      flex: 1,
+    },
+    button: {
+      flex: 1,
+      //alignself: 'flex-end'
     }
+
   }
 
   const multiActionPenalty = (rollQueue.length - 1) * 2;
 
   return (
     <Paper style={style.Paper}>
-      <Typography variant="h4">
-        Roll Queue
-      </Typography>
+      <Grid container style={style.gridContainer}> 
+        <Typography variant="h4" style={style.gridItem}>
+          Roll Queue  
+        </Typography>
+        {rollQueue.length === 0
+          ? null
+          : <Button 
+              variant="contained" 
+              color="primary" 
+              style={style.button}
+              onClick={() => rollQueueMethods.clearRollQueue(rollQueue)}
+            >
+              Clear all skills
+            </Button>  
+        }
+      </Grid>
+
       {rollQueue.length !== 0
         ? <> 
             {multiActionPenalty > 0
@@ -40,13 +67,6 @@ export const RollingList = ({rollQueue, rollQueueMethods, rollMethods, wildDie, 
                 botchActive={botchActive}
               /> 
             )) } 
-            <Button 
-              variant="contained" 
-              color="primary" 
-              onClick={() => rollQueueMethods.clearRollQueue(rollQueue)}
-            >
-                Clear all skills from queue
-            </Button>
           </>
         : null
       }
