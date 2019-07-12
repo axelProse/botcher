@@ -15,24 +15,35 @@ export const RollQueueSkill = props => {
       padding: 20, 
       marginTop: 5,
       marginBottom: 5,
+      background: 'lightblue'
     },
     Button: {
       padding: 5,
+      background: 'orange',
+      color: 'black',
+    },
+    closeButton: {
+      padding: 5,
+      background: 'crimson',
+      color: 'white',
+    },
+    Typography: {
+      color: 'darkslategrey'
     }
   }
 
   return (
   <Card style={style.Card}>
       <Grid container alignItems="center" justify="space-between" direction="row">
-      <Button variant="contained" color="secondary" style={style.Button} onClick={() => rollIt(props.wildDie, props.skill.dieType, props.multiActionPenalty, props.botchActive)} >
+      <Button variant="contained" style={style.Button} onClick={() => rollIt(props.wildDie, props.skill.dieType, props.multiActionPenalty, props.botchActive)} >
         {rolledResult}
       </Button>
-      <Typography variant="h5">
+      <Typography variant="h5" style={style.Typography}>
           {props.skill.name}
         </Typography>
 
         
-      <Button variant="outlined" color="secondary" style={style.Button} onClick={() => props.removeFromRollQueue(props.skill.name) } >x</Button>
+      <Button variant="outlined" color="secondary" style={style.closeButton} onClick={() => props.removeFromRollQueue(props.skill.name) } >x</Button>
       </Grid>
     </Card>
   );

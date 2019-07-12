@@ -13,6 +13,7 @@ export const SkillList = ({skills, addToRollQueue}) => {
       marginTop: 5,
       height: 500,
       overflowY: 'auto',
+      background: 'darkslategrey'
     }
   }
   

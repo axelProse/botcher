@@ -8,8 +8,12 @@ export const RollingList = ({rollQueue, rollQueueMethods, rollMethods, wildDie, 
     Paper: {
       padding: 20,
       marginTop: 5,
+      marginLeft: 5,
       height: 500,
       overflowY: 'auto',
+      background: 'darkslategrey',
+      border: '4px',
+      borderColor: 'red'
     }, 
     gridContainer: {
       flexdirection: 'row',
@@ -18,9 +22,11 @@ export const RollingList = ({rollQueue, rollQueueMethods, rollMethods, wildDie, 
     },
     gridItem: {
       flex: 1,
+      color: 'white',
     },
     button: {
       flex: 1,
+      background: 'crimson',
       //alignself: 'flex-end'
     }
 

@@ -17,6 +17,8 @@ export const CharacterDetails = ({characterInfo}) => {
         marginTop: 5,
         height: 200,
         overflowY: 'auto',
+        background: 'lightblue',
+        color: 'darkslategrey',
       }
     }
 

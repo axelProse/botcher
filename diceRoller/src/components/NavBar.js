@@ -30,14 +30,21 @@ export const NavBar = props => {
 //   </Switch>
 // </div>
 
+  const style = {
+    Tabs: {
+      background: 'darkslategrey',
+      indicatorColor: 'teal',
+      color: 'white'
+    }
+  }
+
   return (
     <Paper > 
       {/* className={classes.root}> */}
       <Tabs
         value={value}
         onChange={handleChange}
-        indicatorColor="primary"
-        textColor="primary"
+        style={style.Tabs}
         centered
       >
         <Tab label="Character Creator" />

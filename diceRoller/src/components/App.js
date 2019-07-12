@@ -1,7 +1,10 @@
 import React from 'react'
+import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider"
+import {Paper} from "@material-ui/core"
 import {useCharacterInfo} from './CharacterInfo.js'
 import {NavBar} from './NavBar.js'
 import {SkillTab} from './SkillTab.js'
+import theme from '../theme.js'
 
 export default function App () {
   const botchActive = true; // I would like to make this a setting rule, but wanted to add it into the skill rolling immediately.  Change scope later.  
@@ -58,14 +61,22 @@ export default function App () {
 
   }
 
+  const style = {
+    backdrop: {
+      background: 'lightslategrey'
+    }
+  }
+
   return (
-    <div>
-      <NavBar />
-      <SkillTab 
-        rollMethods={rollMethods}
-        botchActive={botchActive}
-        characterInfo={useCharacterInfo()}  // This is the React component, which is ultimately weird... but that's why I need to invoke it here.  Refactor away.
+    <MuiThemeProvider theme={theme}>
+      <Paper style={style.backdrop}>
+        <NavBar />
+        <SkillTab 
+          rollMethods={rollMethods}
+          botchActive={botchActive}
+          characterInfo={useCharacterInfo()}  // This is the React component, which is ultimately weird... but that's why I need to invoke it here.  Refactor away.
         />
-    </div>
+      </Paper>
+    </MuiThemeProvider>
   );
 }
