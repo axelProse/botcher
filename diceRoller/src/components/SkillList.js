@@ -18,7 +18,12 @@ export const SkillList = ({skills, addToRollQueue}) => {
   
   return (
     <Paper style={style.Paper}>
-      <Grid container justify="flex-start" spacing={2} style={style.Grid}>
+      <Grid container 
+      direction="column"
+      alignItems="stretch"
+      //justify="space-evenly" 
+      spacing={1} 
+      style={style.Grid}>
         {skills.map(skill => (
           <Grid key={skill.name} item>
             <SkillButton 

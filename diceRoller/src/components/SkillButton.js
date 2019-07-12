@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, Typography } from '@material-ui/core'
+import { Button, Card, Grid, Typography } from '@material-ui/core'
 
 export const SkillButton = ({skill, addToRollQueue}) => {
 
@@ -7,24 +7,34 @@ export const SkillButton = ({skill, addToRollQueue}) => {
       Card: {
         padding: 20, 
         margin: 5,
-      }
+      },
     }
     
   return(
     <Card style={styles.Card}>
-      <Typography 
+      <Grid container justify="space-between">
+      <div>
+        <Typography 
         variant="h5" 
-        //align="center"
       > 
-        {skill.name}
+        {skill.name}  
+        
       </Typography>
-      <Button variant="outlined" color="primary" onClick={() => addToRollQueue(skill)}>
-        Roll {skill.name}
-      </Button>
       <Typography variant="subtitle1">
         <div>Die type: {skill.dieType}</div>
         <div>Description: {skill.description}</div>
       </Typography>
+      </div>
+
+
+      <Button 
+          variant="contained" 
+          color="primary" 
+          
+          onClick={() => addToRollQueue(skill)}>
+        Roll {skill.name}
+      </Button>
+      </Grid> 
     </Card>
   );
 }
