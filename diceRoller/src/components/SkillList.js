@@ -13,12 +13,12 @@ export const SkillList = ({skills, addToRollQueue}) => {
       marginTop: 5,
       height: 500,
       overflowY: 'auto',
-      background: 'darkslategrey'
+      //background: 'darkslategrey'
     }
   }
   
   return (
-    <Paper style={style.Paper}>
+    <Paper style={style.Paper} color="error">
       <Grid container 
       direction="column"
       alignItems="stretch"

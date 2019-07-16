@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { MuiThemeProvider } from '@material-ui/core'
+import { App } from './components/App.js';
+import theme from './theme.js'
 
-import App from './components/App';
-// import CharacterInfo from './components/CharacterInfo';
+const commonTheme = theme;
 
 ReactDOM.hydrate(
   <>
-    <App />
-    {/* <CharacterInfo /> */}
+    <MuiThemeProvider theme={commonTheme}>
+      <App />
+    </MuiThemeProvider>
   </>,
-  document.getElementById('mountNode'),
+  document.getElementById('root'),
 );

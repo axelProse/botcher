@@ -3,31 +3,32 @@ import { Button, Card, Grid, Typography } from '@material-ui/core'
 
 export const SkillButton = ({skill, addToRollQueue}) => {
 
-    const style ={
+    const style = {
       Card: {
         padding: 20, 
         margin: 5,
-        background: 'lightblue'
+        //background: 'lightblue'
       },
       Button: {
-        background: 'teal',
+        //background: 'teal',
       },
       Typography: {
-        color: 'darkslategrey',
+        //color: "error",
       }
     }
     
   return(
-    <Card style={style.Card}>
+    <Card color="primary" style={style.Card}>
       <Grid container justify="space-between">
       <div>
         <Typography style={style.Typography}
         variant="h5" 
+        color="primary"
       > 
         {skill.name}  
         
       </Typography>
-      <Typography variant="subtitle1" style={style.Typography}>
+      <Typography variant="subtitle1" color="primary" style={style.Typography}>
         <div>Die type: {skill.dieType}</div>
         <div>Description: {skill.description}</div>
       </Typography>
@@ -36,7 +37,7 @@ export const SkillButton = ({skill, addToRollQueue}) => {
 
       <Button 
           variant="contained" 
-          color="primary" 
+          color="secondary" 
           style={style.Button}
                    
           onClick={() => addToRollQueue(skill)}>

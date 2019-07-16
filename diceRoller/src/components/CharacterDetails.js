@@ -1,7 +1,22 @@
 import React from 'react';
 import { Paper, Typography } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
 
-export const CharacterDetails = ({characterInfo}) => {
+const styles = theme => ({
+  paper: {
+    padding: theme.spacing(2.5),
+    marginTop: theme.spacing(6),
+    //height: 200,  // instead of a defined height, should this be done differently?  Actually, 
+    // should the entire SkillTab layout be within a grid so I can have flex values for those?  
+    // For now, gonna see if I even need to do that or if it plays nicely.  
+    overflowY: 'auto',
+  },
+  typography: {
+    color: theme.palette.text.secondary.main,
+  },
+})
+
+export default withStyles(styles)(({classes, characterInfo}) => {
   
     const {
       characterName,
@@ -11,23 +26,12 @@ export const CharacterDetails = ({characterInfo}) => {
       bennies,
     } = characterInfo;
 
-    const style={
-      Paper: {
-        padding: 20,
-        marginTop: 5,
-        height: 200,
-        overflowY: 'auto',
-        background: 'lightblue',
-        color: 'darkslategrey',
-      }
-    }
-
   return (
-    <Paper style={style.Paper}>
-      <Typography variant="h3"> 
+    <Paper className={classes.paper}>
+      <Typography variant="h3"  className={classes.typography}> 
         Name: {characterName}
       </Typography>
-      <Typography variant="h4">
+      <Typography variant="h4" color="primary">
         <div>Wounds: {wounds}</div>
         <div>Rank: {rank}</div>
         <div>Experience: {experience}</div>
@@ -35,4 +39,4 @@ export const CharacterDetails = ({characterInfo}) => {
       </Typography>
     </Paper>
   );
-}
+})

@@ -10,40 +10,40 @@ export const RollQueueSkill = props => {
     setRolledResult(result);
   } 
 
-  const style ={
+  const style = {
     Card: {
       padding: 20, 
       marginTop: 5,
       marginBottom: 5,
-      background: 'lightblue'
+      //background: 'lightblue'
     },
     Button: {
       padding: 5,
-      background: 'orange',
-      color: 'black',
+      //background: 'orange',
+      //color: 'black',
     },
     closeButton: {
       padding: 5,
-      background: 'crimson',
-      color: 'white',
+      //background: 'crimson',
+      //color: 'white',
     },
     Typography: {
-      color: 'darkslategrey'
+      //color: 'darkslategrey'
     }
   }
 
   return (
   <Card style={style.Card}>
       <Grid container alignItems="center" justify="space-between" direction="row">
-      <Button variant="contained" style={style.Button} onClick={() => rollIt(props.wildDie, props.skill.dieType, props.multiActionPenalty, props.botchActive)} >
+      <Button variant="contained" background="primary" color="primary" style={style.Button} onClick={() => rollIt(props.wildDie, props.skill.dieType, props.multiActionPenalty, props.botchActive)} >
         {rolledResult}
       </Button>
-      <Typography variant="h5" style={style.Typography}>
+      <Typography variant="h5" color="primary">
           {props.skill.name}
         </Typography>
 
         
-      <Button variant="outlined" color="secondary" style={style.closeButton} onClick={() => props.removeFromRollQueue(props.skill.name) } >x</Button>
+      <Button variant="outlined" background="primary" color="secondary" style={style.closeButton} onClick={() => props.removeFromRollQueue(props.skill.name) } >x</Button>
       </Grid>
     </Card>
   );

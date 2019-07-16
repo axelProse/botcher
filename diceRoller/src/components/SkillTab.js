@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {baseSkills} from '../services/skills.js'
 import {SkillList} from './SkillList.js'
-import {CharacterDetails} from './CharacterDetails.js'
-import {RollingList} from './RollingList.js'
+import CharacterDetails from './CharacterDetails.js'
+import RollingList from './RollingList.js'
 import {Grid} from '@material-ui/core';
 
 export const SkillTab = ({rollMethods, botchActive, characterInfo}) => {
@@ -57,8 +57,6 @@ export const SkillTab = ({rollMethods, botchActive, characterInfo}) => {
           </Grid>
         {/* Can I spread the character details in here instead? */}
 
-        
-        
       </div>
     );
 }
