@@ -5,7 +5,7 @@ import {useCharacterInfo} from './CharacterInfo.js'
 import NavBar from './NavBar.js'
 import {SkillTab} from './SkillTab.js'
 
-export const App = (props) => {
+export const App = () => {
   const botchActive = true; // I would like to make this a setting rule, but wanted to add it into the skill rolling immediately.  Change scope later.  
   
   const rollMethods = {

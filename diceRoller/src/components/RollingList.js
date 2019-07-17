@@ -1,30 +1,26 @@
 import React from 'react'
-import { RollQueueSkill } from './RollQueueSkill.js'
+import RollQueueSkill from './RollQueueSkill.js'
 import { Button, Grid, Paper, Typography, withStyles } from '@material-ui/core'
 
 const styles = theme => ({
   paper: {
-    padding: theme.spacing(2.5),
-    marginTop: 5,
-    marginLeft: 5,
+    padding: theme.spacing(1.5),
+    margin: theme.spacing(1.5),
     height: 500,
     overflowY: 'auto',
   }, 
   gridContainer: {
-    //padding: theme.spacing,
-    margin: theme.spacing(2.5),
     flexdirection: 'row',
     justify: 'space-between'
   },
   gridItem: {
-    flex: 1,
+    flex: 2,
     margin: theme.spacing(2),
   },
   button: {
-    flex: 2,
-    margin: theme.spacing(2),
+    flex: 1,
+    marginRight: theme.spacing(2),
   }
-
 })
 
 export default withStyles(styles) (({classes, rollQueue, rollQueueMethods, rollMethods, wildDie, botchActive}) => {
@@ -32,9 +28,12 @@ export default withStyles(styles) (({classes, rollQueue, rollQueueMethods, rollM
   const multiActionPenalty = (rollQueue.length - 1) * 2;
 
   return (
-    <Paper>
+    <Paper className={classes.paper}>
       <Grid container className={classes.gridContainer}> 
-        <Typography variant="h4" className={classes.gridItem}>
+        <Typography 
+          className={classes.gridItem}
+          variant="h4" 
+        >
           Roll Queue  
         </Typography>
         {rollQueue.length === 0
@@ -53,8 +52,13 @@ export default withStyles(styles) (({classes, rollQueue, rollQueueMethods, rollM
       {rollQueue.length !== 0
         ? <> 
             {multiActionPenalty > 0
-            ? <Typography variant="h5" color="error" centered>
-              Current penalty to every roll: {multiActionPenalty}
+            ? <Typography 
+                className={classes.gridItem} 
+                variant="h5" 
+                color="error" 
+                align="center"
+              >
+                Current penalty to every roll: {multiActionPenalty}
               </Typography>
             : null
             }
@@ -75,5 +79,4 @@ export default withStyles(styles) (({classes, rollQueue, rollQueueMethods, rollM
       }
     </Paper>
   );
-}
-)
+})

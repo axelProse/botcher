@@ -27,9 +27,11 @@ export default createMuiTheme({
     },
     //type: 'dark'
   }, 
-  spacing:
-    8,
+  spacing: 8,
 });
+
+// If I create a root theme and then other objects for other classes, can I lump them all into this single theme and get most of the benefits of the main theme + not having to create
+// new styles for individual elements everywhere?  For example, I could set a basic margin / padding for paper and override it for specific cases.  
 
 // const oldTheme = createMuiTheme({
 // //export const createMuiTheme ({
