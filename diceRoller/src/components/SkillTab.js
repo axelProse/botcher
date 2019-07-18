@@ -3,9 +3,21 @@ import {baseSkills} from '../services/skills.js'
 import SkillList from './SkillList.js'
 import CharacterDetails from './CharacterDetails.js'
 import RollingList from './RollingList.js'
-import {Grid} from '@material-ui/core';
+import {Grid, withStyles} from '@material-ui/core';
 
-export const SkillTab = ({rollMethods, botchActive, characterInfo}) => {
+const styles = theme => ({
+  pageStyle: {
+    height: 'calc(100% - 24px)'
+  },
+  characterDetails: {
+    flex: 1
+  },
+  rollers: {
+    flex: 1,
+  }
+})
+
+export default withStyles(styles)(({classes, rollMethods, botchActive, characterInfo}) => {
   const [rollQueue, setRollQueue] = useState([]);
 
   const rollQueueMethods = {
@@ -32,11 +44,15 @@ export const SkillTab = ({rollMethods, botchActive, characterInfo}) => {
   const { wildDie } = characterInfo;
 
   return (
-    <div>
+    <Grid container 
+      className={classes.pageStyle}
+      direction="column"
+    >
       <CharacterDetails 
+        className={classes.characterDetails}
         characterInfo={characterInfo}
       />
-      <Grid container>
+      <Grid container className={classes.rollers}>
         <Grid item sm>
           <SkillList 
             skills={baseSkills} 
@@ -54,9 +70,9 @@ export const SkillTab = ({rollMethods, botchActive, characterInfo}) => {
         </Grid>
       </Grid>
       {/* Can I spread the character details in here instead? */}
-    </div>
+    </Grid>
   );
-}
+})
 
 // Once I start implementing a character creator tab, I will put that in a second component.  
 // Then I can apparently use react-router to hook these tabs to links in the NavBar component, which then allows me to switch which view displays.  

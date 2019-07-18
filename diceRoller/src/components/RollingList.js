@@ -3,10 +3,15 @@ import RollQueueSkill from './RollQueueSkill.js'
 import { Button, Grid, Paper, Typography, withStyles } from '@material-ui/core'
 
 const styles = theme => ({
+  // '@global': {
+  //   'html, body, #root': {
+  //     height: '100%',
+  //   }
+  // },
   paper: {
     padding: theme.spacing(1.5),
     margin: theme.spacing(1.5),
-    height: 500,
+    height: '100%',
     overflowY: 'auto',
   }, 
   gridContainer: {

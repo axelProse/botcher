@@ -5,9 +5,9 @@ import { Grid, Paper, withStyles } from '@material-ui/core'
 const styles = theme => ({
   paper: {
     margin: theme.spacing(1.5),
-    height: 500,
     overflowY: 'auto',
-  }
+    height: '100%'
+  },
 })
 
 export default withStyles(styles) (({classes, skills, addToRollQueue}) => {
