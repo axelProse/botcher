@@ -1,45 +1,47 @@
 import React from 'react'
-import { RollQueueSkill } from './RollQueueSkill.js'
-import { Button, Grid, Paper, Typography } from '@material-ui/core'
+import RollQueueSkill from './RollQueueSkill.js'
+import { Button, Grid, Paper, Typography, withStyles } from '@material-ui/core'
 
-export const RollingList = ({rollQueue, rollQueueMethods, rollMethods, wildDie, botchActive}) => {
-
-  const style={
-    Paper: {
-      padding: 20,
-      marginTop: 5,
-      height: 500,
-      overflowY: 'auto',
-    }, 
-    gridContainer: {
-      flexdirection: 'row',
-      justify: 'space-between'
-
-    },
-    gridItem: {
-      flex: 1,
-    },
-    button: {
-      flex: 1,
-      //alignself: 'flex-end'
-    }
-
+const styles = theme => ({
+  paper: {
+    padding: theme.spacing(1.5),
+    margin: theme.spacing(1.5),
+    height: 500,
+    overflowY: 'auto',
+  }, 
+  gridContainer: {
+    flexdirection: 'row',
+    justify: 'space-between'
+  },
+  gridItem: {
+    flex: 2,
+    margin: theme.spacing(2),
+  },
+  button: {
+    flex: 1,
+    marginRight: theme.spacing(2),
   }
+})
+
+export default withStyles(styles) (({classes, rollQueue, rollQueueMethods, rollMethods, wildDie, botchActive}) => {
 
   const multiActionPenalty = (rollQueue.length - 1) * 2;
 
   return (
-    <Paper style={style.Paper}>
-      <Grid container style={style.gridContainer}> 
-        <Typography variant="h4" style={style.gridItem}>
+    <Paper className={classes.paper}>
+      <Grid container className={classes.gridContainer}> 
+        <Typography 
+          className={classes.gridItem}
+          variant="h4" 
+        >
           Roll Queue  
         </Typography>
         {rollQueue.length === 0
           ? null
           : <Button 
               variant="contained" 
-              color="primary" 
-              style={style.button}
+              color="secondary" 
+              className={classes.button}
               onClick={() => rollQueueMethods.clearRollQueue(rollQueue)}
             >
               Clear all skills
@@ -50,8 +52,13 @@ export const RollingList = ({rollQueue, rollQueueMethods, rollMethods, wildDie, 
       {rollQueue.length !== 0
         ? <> 
             {multiActionPenalty > 0
-            ? <Typography variant="h5" color="secondary">
-              Current penalty to every roll: {multiActionPenalty}
+            ? <Typography 
+                className={classes.gridItem} 
+                variant="h5" 
+                color="error" 
+                align="center"
+              >
+                Current penalty to every roll: {multiActionPenalty}
               </Typography>
             : null
             }
@@ -72,4 +79,4 @@ export const RollingList = ({rollQueue, rollQueueMethods, rollMethods, wildDie, 
       }
     </Paper>
   );
-}
+})

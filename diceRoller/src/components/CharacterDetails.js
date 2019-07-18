@@ -1,7 +1,16 @@
 import React from 'react';
 import { Paper, Typography } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
 
-export const CharacterDetails = ({characterInfo}) => {
+const styles = theme => ({
+  paper: {
+    padding: theme.spacing(3),
+    marginTop: theme.spacing(5),
+    overflowY: 'auto',
+  },
+})
+
+export default withStyles(styles)(({classes, characterInfo}) => {
   
     const {
       characterName,
@@ -11,18 +20,9 @@ export const CharacterDetails = ({characterInfo}) => {
       bennies,
     } = characterInfo;
 
-    const style={
-      Paper: {
-        padding: 20,
-        marginTop: 5,
-        height: 200,
-        overflowY: 'auto',
-      }
-    }
-
   return (
-    <Paper style={style.Paper}>
-      <Typography variant="h3"> 
+    <Paper className={classes.paper}>
+      <Typography variant="h3">
         Name: {characterName}
       </Typography>
       <Typography variant="h4">
@@ -33,4 +33,4 @@ export const CharacterDetails = ({characterInfo}) => {
       </Typography>
     </Paper>
   );
-}
+})

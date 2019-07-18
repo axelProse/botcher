@@ -1,40 +1,43 @@
 import React from 'react';
-import { Button, Card, Grid, Typography } from '@material-ui/core'
+import { Button, Card, Grid, Typography, withStyles } from '@material-ui/core'
 
-export const SkillButton = ({skill, addToRollQueue}) => {
+const styles = theme => ({
+  card: {
+    padding: theme.spacing(1.5), 
+    margin: theme.spacing(1),
+  },
+  header: {
+    textTransform: 'capitalize',
+  }
+})
 
-    const styles ={
-      Card: {
-        padding: 20, 
-        margin: 5,
-      },
-    }
-    
+export default withStyles(styles) (({classes, skill, addToRollQueue}) => {
+   
   return(
-    <Card style={styles.Card}>
-      <Grid container justify="space-between">
+    <Card className={classes.card}>
+      <Grid container 
+        justify="space-between"
+      >
       <div>
         <Typography 
-        variant="h5" 
-      > 
-        {skill.name}  
-        
-      </Typography>
-      <Typography variant="subtitle1">
-        <div>Die type: {skill.dieType}</div>
-        <div>Description: {skill.description}</div>
-      </Typography>
+          className={classes.header} 
+          variant='h5'
+        > 
+          {skill.name}  
+        </Typography>
+        <Typography variant="subtitle1">
+          <div>Die type: {skill.dieType}</div>
+          <div>Description: {skill.description}</div>
+        </Typography>
       </div>
-
-
       <Button 
-          variant="contained" 
-          color="primary" 
-          
-          onClick={() => addToRollQueue(skill)}>
+        variant="contained" 
+        color="secondary"                  
+        onClick={() => addToRollQueue(skill)}
+      >
         Roll {skill.name}
       </Button>
       </Grid> 
     </Card>
   );
-}
+})

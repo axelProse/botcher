@@ -1,39 +1,64 @@
 import React, {useState} from 'react'
-import { Button, Card, Grid, Typography } from '@material-ui/core'
+import { Button, Card, Grid, Typography, withStyles } from '@material-ui/core'
 
-export const RollQueueSkill = props => {
+const styles = theme => ({
+  card: {
+    padding: theme.spacing(2.5), 
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1),
+  },
+  button: {
+    padding: theme.spacing(2),
+    background: theme.palette.primary.main,
+  },
+  closeButton: { // This should be an icon at some point.  
+    height: 48,
+    color: theme.palette.secondary.main,
+  },
+  skillName: {
+    textTransform: 'capitalize',
+  }
+})
 
-  const [rolledResult, setRolledResult] = useState(`Roll d${props.skill.dieType}`);
+export default withStyles(styles) (({classes, skill, wildDie, multiActionPenalty, botchActive, onClick, removeFromRollQueue}) => {
+
+  const [rolledResult, setRolledResult] = useState(`Roll d${skill.dieType}`);
 
   const rollIt = () => {
-    let result = props.onClick(props.wildDie, props.skill.dieType, props.multiActionPenalty, props.botchActive);
+    let result = onClick(wildDie, skill.dieType, multiActionPenalty, botchActive);
     setRolledResult(result);
   } 
 
-  const style ={
-    Card: {
-      padding: 20, 
-      marginTop: 5,
-      marginBottom: 5,
-    },
-    Button: {
-      padding: 5,
-    }
-  }
-
   return (
-  <Card style={style.Card}>
-      <Grid container alignItems="center" justify="space-between" direction="row">
-      <Button variant="contained" color="secondary" style={style.Button} onClick={() => rollIt(props.wildDie, props.skill.dieType, props.multiActionPenalty, props.botchActive)} >
-        {rolledResult}
-      </Button>
-      <Typography variant="h5">
-          {props.skill.name}
+    <Card className={classes.card}>
+      <Grid container 
+        alignItems="center" 
+        justify="space-between" 
+        direction="row"
+      >
+        <Button 
+          className={classes.button} 
+          variant="contained" 
+          onClick={() => rollIt(wildDie, skill.dieType, multiActionPenalty, botchActive)} 
+        >
+          {rolledResult}
+        </Button>
+        <Typography 
+          className={classes.skillName}
+          variant="h5" 
+        >
+            {skill.name}
         </Typography>
 
         
-      <Button variant="outlined" color="secondary" style={style.Button} onClick={() => props.removeFromRollQueue(props.skill.name) } >x</Button>
+      <Button 
+        className={classes.closeButton} 
+        variant="outlined" 
+        onClick={() => removeFromRollQueue(skill.name) } 
+      >
+        X
+      </Button>
       </Grid>
     </Card>
   );
-  }
+})

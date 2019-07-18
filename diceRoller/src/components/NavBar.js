@@ -1,10 +1,17 @@
 import React from 'react';
-import { Paper, Tabs, Tab } from '@material-ui/core'
+import { AppBar, Tabs, Tab } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
 
-export const NavBar = props => {
-  //const classes = useStyles();
+const styles = theme => (
+  {
+    tabs: {
+      color: theme.palette.text.secondary.light,
+    },
+  }
+)
+
+export default withStyles(styles)(({classes}) => {
   const [value, setValue] = React.useState(1);
-
   function handleChange(event, newValue) {
     setValue(newValue);
   }
@@ -31,19 +38,19 @@ export const NavBar = props => {
 // </div>
 
   return (
-    <Paper > 
+    <AppBar>
+       {/* classes={{ paper: classes.paper }}> */}
+       {/* style={style.paper}>  */}
       {/* className={classes.root}> */}
       <Tabs
         value={value}
         onChange={handleChange}
-        indicatorColor="primary"
-        textColor="primary"
         centered
       >
-        <Tab label="Character Creator" />
-        <Tab label="Skill Rolling" />
-        <Tab label="Advancements" />
+        <Tab label="Character Creator" className={classes.tabs} />
+        <Tab label="Skill Rolling" className={classes.tabs} />
+        <Tab label="Advancements" className={classes.tabs} />
       </Tabs>
-    </Paper>
+    </AppBar>
   );
-}
+})
