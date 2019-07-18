@@ -8,6 +8,13 @@ const styles = theme => ({
   },
   header: {
     textTransform: 'capitalize',
+  }, 
+  textBlock: { // I started messing with flexing the layout of skills; didn't want to mess with padding right now.  
+    //flex: 2 
+  },
+  button: { // Really, should play with the breakpoints for these sorts of layout changes anyway.  
+    //flex: 1,
+    //flexShrink: 2,
   }
 })
 
@@ -19,6 +26,7 @@ export default withStyles(styles) (({classes, skill, addToRollQueue}) => {
         justify="space-between"
       >
       <div>
+         {/* className={classes.textBlock}> */}
         <Typography 
           className={classes.header} 
           variant='h5'
@@ -31,6 +39,7 @@ export default withStyles(styles) (({classes, skill, addToRollQueue}) => {
         </Typography>
       </div>
       <Button 
+        className={classes.button}
         variant="contained" 
         color="secondary"                  
         onClick={() => addToRollQueue(skill)}
