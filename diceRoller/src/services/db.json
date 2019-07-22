@@ -1,0 +1,155 @@
+{
+  "skills": [
+    {
+      "id": "academics",
+      "name": "academics",
+      "dieType": 4,
+      "associatedAttribute": "smarts",
+      "twelveModifier": null,
+      "description": "What you know."
+    },
+    {
+      "id": "athletics",
+      "name": "athletics",
+      "dieType": 4,
+      "associatedAttribute": "agility",
+      "twelveModifier": null,
+      "description": "Basic moving."
+    },
+    {
+      "id": "battle",
+      "name": "battle",
+      "dieType": 6,
+      "associatedAttribute": "smarts",
+      "twelveModifier": null,
+      "description": "Leading people in fights."
+    },
+    {
+      "id": "boating",
+      "name": "boating",
+      "dieType": 8,
+      "associatedAttribute": "agility",
+      "twelveModifier": null,
+      "description": "Controlling boats."
+    },
+    {
+      "id": "common-knowledge",
+      "name": "common knowledge",
+      "dieType": 4,
+      "associatedAttribute": "smarts",
+      "twelveModifier": null,
+      "description": "Placeholder string"
+    },
+    {
+      "id": "driving",
+      "name": "driving",
+      "dieType": 10,
+      "associatedAttribute": "agility",
+      "twelveModifier": null,
+      "description": "Placeholder string"
+    },
+    {
+      "id": "electronics",
+      "name": "electronics",
+      "dieType": 12,
+      "associatedAttribute": "smarts",
+      "twelveModifier": null,
+      "description": "Placeholder string"
+    },
+    {
+      "id": "shooting",
+      "name": "shooting",
+      "dieType": 8,
+      "associatedAttribute": "agility",
+      "twelveModifier": null,
+      "description": "Guns, etc."
+    }
+  ],
+  "attributes": [
+    {
+      "name": "agility",
+      "dieType": 4,
+      "description": "Quickness"
+    },
+    {
+      "name": "smarts",
+      "dieType": 4,
+      "description": "Wits"
+    },
+    {
+      "name": "spirit",
+      "dieType": 4,
+      "description": "Resolve"
+    },
+    {
+      "name": "strength",
+      "dieType": 4,
+      "description": "Might"
+    },
+    {
+      "name": "vigor",
+      "dieType": 4,
+      "description": "Endurance"
+    }
+  ], 
+  "characters": [
+    {
+      "id": 0,
+      "characterName": "Template Character", 
+      "rank": "Novice",
+      "wounds": 0,
+      "wildDie": 6,
+      "experience": 0,
+      "bennies": 3,
+      "pace": 6,
+      "toughness": 2,
+      "parry":2, 
+      "attributes": [
+        { "name": "agility",
+          "dieType": 4,
+          "description": "Quickness"
+        },
+        { "smarts": 4 }, 
+        { "spirit": 4 },
+        { "strength": 4 },
+        { "vigor": 4 }
+      ], 
+      "skills": {
+        "athletics": 4,
+        "knowledge": 4,
+        "notice": 4,
+        "persuasion": 4,
+        "stealth": 4
+      }, 
+      "hindrances": [],
+      "edges": [],
+      "gear": []
+    },
+    {
+      "id": 1,
+      "characterName": "Axel Prose", 
+      "rank": "Novice",
+      "wounds": 0,
+      "wildDie": 6,
+      "experience": 0,
+      "bennies": 3,
+      "pace": 6,
+      "toughness": 2,
+      "parry":2,
+      "attributes": {
+        "agility": 4,
+        "smarts": 4, 
+        "spirit": 4,
+        "strength": 4,
+        "vigor": 4
+      }, 
+      "skills": {
+        "athletics": 4,
+        "knowledge": 4,
+        "notice": 4,
+        "persuasion": 4,
+        "stealth": 4
+      }
+    }
+  ]
+}

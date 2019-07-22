@@ -8,20 +8,20 @@ const styles = theme => ({
     paddingBottom: theme.spacing(1),
     marginTop: theme.spacing(5),
     overflowY: 'auto',
-    //height: 'calc(25% - 40px)',
-    // minHeight: 200,
   },
 })
 
 export default withStyles(styles)(({classes, characterInfo}) => {
-  
+
     const {
       characterName,
       wounds, 
       rank,
       experience,
       bennies,
-    } = characterInfo;
+      parry,
+      toughness
+    } = characterInfo;  // Using this pattern, I can really make my calls at the top level, then easily pass specific info and destructure it.  
 
   return (
     <Paper className={classes.paper}>
@@ -29,6 +29,8 @@ export default withStyles(styles)(({classes, characterInfo}) => {
         Name: {characterName}
       </Typography>
       <Typography variant="h5">
+        <div>Toughness: {toughness}</div>
+        <div>Parry: {parry}</div>
         <div>Wounds: {wounds}</div>
         <div>Rank: {rank}</div>
         <div>Experience: {experience}</div>

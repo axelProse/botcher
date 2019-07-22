@@ -26,7 +26,6 @@ export default withStyles(styles) (({classes, skill, addToRollQueue}) => {
         justify="space-between"
       >
       <div>
-         {/* className={classes.textBlock}> */}
         <Typography 
           className={classes.header} 
           variant='h5'

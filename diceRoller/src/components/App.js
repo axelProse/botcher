@@ -1,7 +1,10 @@
 import React from 'react'
-import {useCharacterInfo} from './CharacterInfo.js'
+import { Route, Switch } from 'react-router-dom'
 import NavBar from './NavBar.js'
+import Home from './Home'
 import SkillTab from './SkillTab.js'
+import CharacterCreatorTab from './CharacterCreatorTab'
+import AdvancementTab from './AdvancementTab'
 
 export default () => {
   const botchActive = true; // I would like to make this a setting rule, but wanted to add it into the skill rolling immediately.  Change scope later.  
@@ -61,11 +64,15 @@ export default () => {
   return (
       <>
         <NavBar />
-        <SkillTab 
-          rollMethods={rollMethods}
-          botchActive={botchActive}
-          characterInfo={useCharacterInfo()}  // This is the React component, which is ultimately weird... but that's why I need to invoke it here.  Refactor away.
-        />
+        <Switch>
+          <Route exact path = '/' component={Home} />
+          <Route path='/character-creator' component={CharacterCreatorTab} />
+          <Route path='/skill-rolling' render={
+            props => <SkillTab {...props} 
+            rollMethods={rollMethods}
+            botchActive={botchActive} /> } />
+          <Route path='/advancement' component={AdvancementTab} />
+        </Switch>
       </>
   );
 }
