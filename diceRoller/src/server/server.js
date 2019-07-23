@@ -10,7 +10,7 @@ import express from 'express';
 const server = express();
 server.use(express.static('dist'));
 
-server.get('/', (req, res) => {
+server.get('/*', (req, res) => {
   //const initialMarkup = ReactDOMServer.renderToString(<App />); // More SSR code commented out.  
 
   res.send(`
