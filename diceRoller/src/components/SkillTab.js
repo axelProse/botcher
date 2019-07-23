@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-import {baseSkills} from '../services/skills.js'
+import React, { useState, useEffect } from 'react';
 import SkillList from './SkillList.js'
 import CharacterDetails from './CharacterDetails.js'
 import RollingList from './RollingList.js'
@@ -17,8 +16,24 @@ const styles = theme => ({
   }
 })
 
-export default withStyles(styles)(({classes, rollMethods, botchActive, characterInfo}) => {
+export default withStyles(styles)(({classes, rollMethods, botchActive}) => {
+  const [characterInfo, setCharacterInfo] = useState([]);
   const [rollQueue, setRollQueue] = useState([]);
+  const [skills, setSkills] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3002/skills')
+      .then(res => res.json())
+      .then(skills => setSkills(skills)
+      )
+  }, [])
+
+  useEffect(() => {
+    fetch('http://localhost:3002/characters/1')
+      .then(res => res.json())
+      .then(characterInfo => setCharacterInfo(characterInfo)
+      )
+  }, [])
 
   const rollQueueMethods = {
 
@@ -55,7 +70,7 @@ export default withStyles(styles)(({classes, rollMethods, botchActive, character
       <Grid container className={classes.rollers}>
         <Grid item sm>
           <SkillList 
-            skills={baseSkills} 
+            skills={skills} 
             addToRollQueue={rollQueueMethods.addToRollQueue}
           />
         </Grid>
@@ -69,11 +84,6 @@ export default withStyles(styles)(({classes, rollMethods, botchActive, character
           /> 
         </Grid>
       </Grid>
-      {/* Can I spread the character details in here instead? */}
     </Grid>
   );
 })
-
-// Once I start implementing a character creator tab, I will put that in a second component.  
-// Then I can apparently use react-router to hook these tabs to links in the NavBar component, which then allows me to switch which view displays.  
-

@@ -10,23 +10,29 @@ const styles = theme => ({
   },
 })
 
-export default withStyles(styles) (({classes, skills, addToRollQueue}) => {
+export default withStyles(styles) (({classes, skills, addToRollQueue}) => { 
+
   return (
     <Paper className={classes.paper}>
       <Grid container 
         direction="column"
         alignItems="stretch"
       >
-        {skills.map(skill => (
-          <Grid item 
-            key={skill.name} 
-          >
-            <SkillButton 
-              skill={skill}
-              addToRollQueue={addToRollQueue}
-            />
-          </Grid>
+        {typeof skills === null
+          ? null
+          : <Paper>
+          
+          {skills.map(skill => (
+            <Grid item 
+              key={skill.name} 
+            >
+              <SkillButton 
+                skill={skill}
+                addToRollQueue={addToRollQueue}
+              />
+            </Grid>
         )) } 
+        </Paper> }
       </Grid>
     </Paper>
   );
