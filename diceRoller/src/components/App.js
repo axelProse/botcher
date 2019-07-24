@@ -2,9 +2,10 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import NavBar from './NavBar.js'
 import Home from './Home'
-import SkillTab from './SkillTab.js'
+//import SkillTab from './SkillTab.js'
 import CharacterCreatorTab from './CharacterCreatorTab'
 import AdvancementTab from './AdvancementTab'
+import SkillRollerContainer from './SkillRollerContainer.js';
 
 export default () => {
   const botchActive = true; // I would like to make this a setting rule, but wanted to add it into the skill rolling immediately.  Change scope later.  
@@ -67,8 +68,8 @@ export default () => {
         <Switch>
           <Route exact path = '/' component={Home} />
           <Route path='/character-creator' component={CharacterCreatorTab} />
-          <Route path='/skill-rolling' render={
-            props => <SkillTab {...props} 
+          <Route path='/skill-roller/' render={
+            props => <SkillRollerContainer {...props} 
             rollMethods={rollMethods}
             botchActive={botchActive} /> } />
           <Route path='/advancement' component={AdvancementTab} />
