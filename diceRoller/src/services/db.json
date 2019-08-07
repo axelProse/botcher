@@ -91,190 +91,218 @@
       "dieType": 4,
       "description": "Endurance"
     }
-  ], 
-  "characters": [
-    {
-      "id": 0,
-      "playReady": false,
-      "characterName": "Template Character", 
-      "rank": "Novice",
-      "wounds": 0,
-      "wildDie": 6,
-      "experience": 0,
-      "bennies": 3,
-      "pace": 6,
-      "toughness": 2,
-      "parry":2, 
-      "attributes": [
-        { "name": "agility",
-          "dieType": 4,
-          "description": "Quickness"
+  ],
+  "characters": {
+    "byId": {
+      "template-character": {
+        "id": "template-character",
+        "playReady": false,
+        "characterName": "Template Character",
+        "rank": "Novice",
+        "wounds": 0,
+        "wildDie": 6,
+        "experience": 0,
+        "bennies": 3,
+        "pace": 6,
+        "toughness": 2,
+        "parry": 2,
+        "attributes": [
+          {
+            "name": "agility",
+            "dieType": 4,
+            "description": "Quickness"
+          },
+          {
+            "smarts": 4
+          },
+          {
+            "spirit": 4
+          },
+          {
+            "strength": 4
+          },
+          {
+            "vigor": 4
+          }
+        ],
+        "skills": {
+          "athletics": 4,
+          "knowledge": 4,
+          "notice": 4,
+          "persuasion": 4,
+          "stealth": 4
         },
-        { "smarts": 4 }, 
-        { "spirit": 4 },
-        { "strength": 4 },
-        { "vigor": 4 }
-      ], 
-      "skills": {
-        "athletics": 4,
-        "knowledge": 4,
-        "notice": 4,
-        "persuasion": 4,
-        "stealth": 4
-      }, 
-      "hindrances": [],
-      "edges": [],
-      "gear": []
+        "hindrances": [],
+        "edges": [],
+        "gear": []
+      },
+      "axel-prose": {
+        "id": "axel-prose",
+        "playReady": true,
+        "characterName": "Axel Prose",
+        "rank": "Novice",
+        "wounds": 0,
+        "wildDie": 6,
+        "experience": 0,
+        "bennies": 3,
+        "pace": 6,
+        "toughness": 2,
+        "parry": 2,
+        "attributes": {
+          "agility": 4,
+          "smarts": 10,
+          "spirit": 6,
+          "strength": 6,
+          "vigor": 4
+        },
+        "skills": [
+          {
+            "id": "athletics",
+            "name": "athletics",
+            "dieType": 6,
+            "associatedAttribute": "agility",
+            "twelveModifier": null,
+            "description": "Basic moving."
+          },
+          {
+            "id": "knowledge",
+            "name": "knowledge",
+            "dieType": 8,
+            "associatedAttribute": "smarts",
+            "twelveModifier": null,
+            "description": "Whatcha know."
+          },
+          {
+            "id": "notice",
+            "name": "notice",
+            "dieType": 10,
+            "associatedAttribute": "smarts",
+            "twelveModifier": null,
+            "description": "Your general awareness"
+          },
+          {
+            "id": "persuasion",
+            "name": "persuasion",
+            "dieType": 4,
+            "associatedAttribute": "spirit",
+            "twelveModifier": null,
+            "description": "Convincing others"
+          },
+          {
+            "id": "stealth",
+            "name": "stealth",
+            "dieType": 4,
+            "associatedAttribute": "agility",
+            "twelveModifier": null,
+            "description": "Sneaks"
+          },
+          {
+            "id": "fighting",
+            "name": "fighting",
+            "dieType": 4,
+            "associatedAttribute": "agility",
+            "twelveModifier": null,
+            "description": "Holding your own"
+          },
+          {
+            "id": "research",
+            "name": "research",
+            "dieType": 6,
+            "associatedAttribute": "smarts",
+            "twelveModifier": null,
+            "description": "Finding info"
+          }
+        ],
+        "hindrances": [],
+        "edges": [],
+        "gear": []
+      },
+      "barnaby-jones": {
+        "id": "barnaby-jones",
+        "playReady": true,
+        "characterName": "Barnaby Jones",
+        "rank": "Novice",
+        "wounds": 0,
+        "wildDie": 6,
+        "experience": 0,
+        "bennies": 3,
+        "pace": 6,
+        "toughness": 2,
+        "parry": 2,
+        "attributes": {
+          "agility": 4,
+          "smarts": 10,
+          "spirit": 6,
+          "strength": 4,
+          "vigor": 6
+        },
+        "skills": [
+          {
+            "id": "athletics",
+            "name": "athletics",
+            "dieType": 6,
+            "associatedAttribute": "agility",
+            "twelveModifier": null,
+            "description": "Basic moving."
+          },
+          {
+            "id": "knowledge",
+            "name": "knowledge",
+            "dieType": 10,
+            "associatedAttribute": "smarts",
+            "twelveModifier": null,
+            "description": "Whatcha know."
+          },
+          {
+            "id": "notice",
+            "name": "notice",
+            "dieType": 8,
+            "associatedAttribute": "smarts",
+            "twelveModifier": null,
+            "description": "Your general awareness"
+          },
+          {
+            "id": "persuasion",
+            "name": "persuasion",
+            "dieType": 8,
+            "associatedAttribute": "spirit",
+            "twelveModifier": null,
+            "description": "Convincing others"
+          },
+          {
+            "id": "stealth",
+            "name": "stealth",
+            "dieType": 4,
+            "associatedAttribute": "agility",
+            "twelveModifier": null,
+            "description": "Sneaks"
+          },
+          {
+            "id": "intimidation",
+            "name": "intimidation",
+            "dieType": 6,
+            "associatedAttribute": "spirit",
+            "twelveModifier": null,
+            "description": "Aggressively swaying others"
+          },
+          {
+            "id": "hacking",
+            "name": "hacking",
+            "dieType": 8,
+            "associatedAttribute": "smarts",
+            "twelveModifier": null,
+            "description": "Breaking into computer systems"
+          }
+        ],
+        "hindrances": [],
+        "edges": [],
+        "gear": []
+      }
     },
-    {
-      "id": 1,
-      "playReady": true,
-      "characterName": "Axel Prose", 
-      "rank": "Novice",
-      "wounds": 0,
-      "wildDie": 6,
-      "experience": 0,
-      "bennies": 3,
-      "pace": 6,
-      "toughness": 2,
-      "parry":2,
-      "attributes": {
-        "agility": 4,
-        "smarts": 10, 
-        "spirit": 6,
-        "strength": 6,
-        "vigor": 4
-      }, 
-      "skills": [
-        {
-          "id": "athletics",
-          "name": "athletics",
-          "dieType": 6,
-          "associatedAttribute": "agility",
-          "twelveModifier": null,
-          "description": "Basic moving."
-        },{
-          "id": "knowledge",
-          "name": "knowledge",
-          "dieType": 8,
-          "associatedAttribute": "smarts",
-          "twelveModifier": null,
-          "description": "Whatcha know."
-        },{          
-          "id": "notice",
-          "name": "notice",
-          "dieType": 10,
-          "associatedAttribute": "smarts",
-          "twelveModifier": null,
-          "description": "Your general awareness"
-        },{          
-          "id": "persuasion",
-          "name": "persuasion",
-          "dieType": 4,
-          "associatedAttribute": "spirit",
-          "twelveModifier": null,
-          "description": "Convincing others"
-        },{          
-          "id": "stealth",
-          "name": "stealth",
-          "dieType": 4,
-          "associatedAttribute": "agility",
-          "twelveModifier": null,
-          "description": "Sneaks"
-        },{          
-          "id": "fighting",
-          "name": "fighting",
-          "dieType": 4,
-          "associatedAttribute": "agility",
-          "twelveModifier": null,
-          "description": "Holding your own"
-        },{          
-          "id": "research",
-          "name": "research",
-          "dieType": 6,
-          "associatedAttribute": "smarts",
-          "twelveModifier": null,
-          "description": "Finding info"
-        }
-      ], 
-      "hindrances": [],
-      "edges": [],
-      "gear": []
-    },
-    {
-      "id": 2,
-      "playReady": true,
-      "characterName": "Barnaby Jones", 
-      "rank": "Novice",
-      "wounds": 0,
-      "wildDie": 6,
-      "experience": 0,
-      "bennies": 3,
-      "pace": 6,
-      "toughness": 2,
-      "parry":2,
-      "attributes": {
-        "agility": 4,
-        "smarts": 10, 
-        "spirit": 6,
-        "strength": 4,
-        "vigor": 6
-      }, 
-      "skills": [
-        {
-          "id": "athletics",
-          "name": "athletics",
-          "dieType": 6,
-          "associatedAttribute": "agility",
-          "twelveModifier": null,
-          "description": "Basic moving."
-        },{
-          "id": "knowledge",
-          "name": "knowledge",
-          "dieType": 10,
-          "associatedAttribute": "smarts",
-          "twelveModifier": null,
-          "description": "Whatcha know."
-        },{          
-          "id": "notice",
-          "name": "notice",
-          "dieType": 8,
-          "associatedAttribute": "smarts",
-          "twelveModifier": null,
-          "description": "Your general awareness"
-        },{          
-          "id": "persuasion",
-          "name": "persuasion",
-          "dieType": 8,
-          "associatedAttribute": "spirit",
-          "twelveModifier": null,
-          "description": "Convincing others"
-        },{          
-          "id": "stealth",
-          "name": "stealth",
-          "dieType": 4,
-          "associatedAttribute": "agility",
-          "twelveModifier": null,
-          "description": "Sneaks"
-        },{          
-          "id": "intimidation",
-          "name": "intimidation",
-          "dieType": 6,
-          "associatedAttribute": "spirit",
-          "twelveModifier": null,
-          "description": "Aggressively swaying others"
-        },{          
-          "id": "hacking",
-          "name": "hacking",
-          "dieType": 8,
-          "associatedAttribute": "smarts",
-          "twelveModifier": null,
-          "description": "Breaking into computer systems"
-        }
-      ], 
-      "hindrances": [],
-      "edges": [],
-      "gear": []
-    }
-  ]
+    "allIds": [
+      "template-character",
+      "axel-prose",
+      "barnaby-jones"
+    ]
+  }
 }
