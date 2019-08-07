@@ -2,14 +2,14 @@ import React from 'react'
 
 const CharacterCreatorTab = (props) => {
 
-  return(
+  return (
     <>
-    <div>Character Creator Tab placeholder</div>
-    <div>Character Creator Tab placeholder</div>
-    <div>Character Creator Tab placeholder</div>
-    <div>Character Creator Tab placeholder</div>
-    <div>Character Creator Tab placeholder</div>
-    <div>Character Creator Tab placeholder</div>
+      <div>Character Creator Tab placeholder</div>
+      <div>Character Creator Tab placeholder</div>
+      <div>Character Creator Tab placeholder</div>
+      <div>Character Creator Tab placeholder</div>
+      <div>Character Creator Tab placeholder</div>
+      <div>Character Creator Tab placeholder</div>
     </>
   )
 }
